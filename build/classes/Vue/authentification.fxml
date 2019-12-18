@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane styleClass="root" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Authentification">
+    <center>
+        <AnchorPane fx:id="roots" prefHeight="615.0" prefWidth="881.0" styleClass="root" stylesheets="@../style/style.css">
+            <children>
+                <Group layoutX="153.0" layoutY="96.0">
+                    <children>
+                        <Region layoutY="46.0" prefHeight="400.0" prefWidth="612.0" style="-fx-background-color: rgba(0,0,0,0.4);" />
+                        <WebView layoutX="327.0" layoutY="46.0" prefHeight="400.0" prefWidth="283.0" stylesheets="@../style/style.css" />
+                        <ImageView fitHeight="69.0" fitWidth="67.0" layoutX="441.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                            <image>
+                                <Image url="@../style/boss.png" />
+                            </image>
+                            <effect>
+                                <DropShadow color="#000000a0" />
+                            </effect>
+                        </ImageView>
+                        <JFXPasswordField fx:id="password" focusColor="#5c919a" labelFloat="true" layoutX="380.0" layoutY="245.0" prefHeight="25.0" prefWidth="177.0" promptText="Mot de passe" unFocusColor="#ff4141">
+                            <font>
+                                <Font name="Cormorant Garamond Medium" size="20.0" />
+                            </font>
+                        </JFXPasswordField>
+                        <Text fill="#ff3a3a" layoutX="418.0" layoutY="107.576171875" strokeType="OUTSIDE" strokeWidth="0.0" text="connexion" textAlignment="CENTER" wrappingWidth="114.42578125">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Text>
+                        <JFXButton id="bouton" layoutX="429.0" layoutY="329.0" onAction="#login" onKeyPressed="#login" prefHeight="36.0" prefWidth="91.0" ripplerFill="#ff6767" style="-fx-background-color: #ff6666;" stylesheets="@../style/style.css" text="connexion" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </JFXButton>
+                        <Text fill="WHITE" layoutX="109.0" layoutY="184.259765625" strokeType="OUTSIDE" strokeWidth="0.0" text="DeskSHOP" textAlignment="CENTER">
+                            <font>
+                                <Font name="Century Gothic Bold" size="22.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="84.0" layoutY="223.9716796875" strokeType="OUTSIDE" strokeWidth="0.0" text="Application de gestion de stock" textAlignment="CENTER" wrappingWidth="198.7685546875">
+                            <font>
+                                <Font name="Lucida Sans Regular" size="17.0" />
+                            </font>
+                        </Text>
+                        <FontAwesomeIconView fill="#ffbf2b" glyphName="ASTERISK" layoutX="224.0" layoutY="173.14285278320312" size="15.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <JFXTextField fx:id="nom" focusColor="#5c919a" labelFloat="true" layoutX="380.0" layoutY="163.0" prefHeight="25.0" prefWidth="177.0" promptText="Utilisateur" unFocusColor="#ff4c4c">
+                            <font>
+                                <Font name="Cormorant Garamond Medium" size="20.0" />
+                            </font>
+                        </JFXTextField>
+                    </children>
+                </Group>
+                <HBox layoutX="-7.0" prefHeight="0.0" prefWidth="881.0">
+                    <children>
+                        <FontAwesomeIconView fx:id="close" fill="#f2f0e0" glyphName="CLOSE" onMouseClicked="#close" size="25" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-cursor: hand;" wrappingWidth="15.714285850524902" HBox.hgrow="NEVER">
+                            <HBox.margin>
+                                <Insets left="845.0" top="10.0" />
+                            </HBox.margin>
+                        </FontAwesomeIconView>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

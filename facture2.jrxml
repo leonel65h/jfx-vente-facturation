@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fb51831b-1229-4bb3-8cb5-1534750f7821">
+    <property name="template.type" value="columnar"/>
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+    <style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <queryString language="SQL">
+		<![CDATA[SELECT nom_client, prenom_client,tel_client,pu,quantite,prixt,date_c
+FROM commande
+INNER JOIN client ON commande.id_c=client.id_client INNER JOIN produit ON commande.id_p = produit.id_p
+ORDER BY date_c DESC LIMIT 1]]>
+    </queryString>
+    <field name="nom_client" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="prenom_client" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="tel_client" class="java.lang.Long">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="pu" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="quantite" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="prixt" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="date_c" class="java.sql.Timestamp">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="324" splitType="Stretch">
+            <image>
+                <reportElement x="53" y="19" width="156" height="136" uuid="6de58f57-332f-43d9-bc2b-0a85812b125c"/>
+                <imageExpression><![CDATA["/home/leonel65/NetBeansProjects/Final/CAP4.png"]]></imageExpression>
+            </image>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="305" y="-117" width="87" height="18" uuid="1007f7bc-06b0-4caf-bf92-09d9ce216e7e"/>
+                <textElement>
+                    <font size="14" isBold="true" pdfFontName="Times-Bold"/>
+                </textElement>
+                <textFieldExpression><![CDATA[adresse]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="380" y="-134" width="87" height="18" uuid="c3ffeadf-ee2d-4bd2-8b0b-e880c61642f9"/>
+                <textElement>
+                    <font size="14" isBold="true" pdfFontName="Times-Bold"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tel_client}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="140" splitType="Stretch">
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="79" y="40" width="132" height="20" forecolor="#000000" uuid="10ce230c-8027-4f90-afee-0ecf234aaf02"/>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[tel_client]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="79" y="60" width="132" height="20" forecolor="#000000" uuid="57e9cf08-a9e3-475f-916e-250e28b0bacb"/>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[pu]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="215" y="60" width="338" height="18" uuid="a18923a4-e2f2-43ac-88b0-78e3ceee695e"/>
+                <textElement>
+                    <font size="14" isBold="true" pdfFontName="Times-Bold"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pu}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="79" y="80" width="132" height="20" forecolor="#000000" uuid="6cb87f72-c0d1-4709-a5b3-3d23aca79901"/>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[quantite]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="215" y="80" width="338" height="18" uuid="a08bfc8d-9bfc-4f20-a81a-39cb1e75d554"/>
+                <textElement>
+                    <font size="14" isBold="true" pdfFontName="Times-Bold"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{quantite}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="79" y="100" width="132" height="20" forecolor="#000000" uuid="dbb6daff-e88e-4222-80e3-811acb4bb770"/>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[prixt]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="215" y="100" width="338" height="18" uuid="91059dbf-45b5-4a72-b604-189718b874fe"/>
+                <textElement>
+                    <font size="14" isBold="true" pdfFontName="Times-Bold"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{prixt}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" x="79" y="120" width="132" height="20" forecolor="#000000" uuid="13804b5d-d136-4bb8-936d-123ca267959c"/>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[date_c]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="215" y="120" width="338" height="18" uuid="06c63e13-e57a-4f4c-aa0c-05c4dca86c8b"/>
+                <textElement>
+                    <font size="14" isBold="true" pdfFontName="Times-Bold"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{date_c}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="7" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="09a94694-9923-4ff0-bca4-46f1265561bb"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="13" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="0ffe65b2-c46b-4ee2-b10a-84710f29fa8c"/>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="66663d72-6a9a-4e7d-993a-e11f6b2f5c4d"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>

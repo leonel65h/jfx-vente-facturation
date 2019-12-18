@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Admin_accueil">
+    <left>
+        <VBox prefHeight="550.0" prefWidth="196.0" style="-fx-background-color: #051428;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="103.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                    <image>
+                        <Image url="@../style/man.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets left="42.0" />
+                    </VBox.margin>
+                </ImageView>
+                <Label fx:id="label" alignment="CENTER" prefHeight="25.0" prefWidth="123.0" text="Administrateur" textFill="#cdc2c2" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets left="28.0" top="5.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="Cormorant Garamond Medium" size="20.0" />
+                    </font>
+                </Label>
+                <Line endX="100.0" startX="-100.0" stroke="#c6b9b9">
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </Line>
+                <JFXButton fx:id="dashboard" graphicTextGap="10.0" onAction="#dashboard" prefHeight="75.0" prefWidth="212.0" style="-fx-background-color: #0290d1;" styleClass="bouton" stylesheets="@../style/style.css" text="Dashbord" textFill="#f5f2f3">
+                    <font>
+                        <Font name="Cormorant Garamond Medium" size="20.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                    <graphic>
+                        <FontAwesomeIconView fill="#eed4d4" glyphName="DASHBOARD" size="20" />
+                    </graphic>
+                    <padding>
+                        <Insets left="-15.0" />
+                    </padding>
+                </JFXButton>
+                <JFXButton fx:id="utilisateurs" graphicTextGap="10.0" layoutX="10.0" layoutY="118.0" onAction="#utilisateur" prefHeight="75.0" prefWidth="217.0" text="Utilisateurs" textFill="#ebe8e8">
+                    <font>
+                        <Font name="Cormorant Garamond Medium" size="20.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#eed4d4" glyphName="GROUP" size="20" />
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="stock" graphicTextGap="10.0" layoutX="10.0" layoutY="144.0" onAction="#stock" prefHeight="75.0" prefWidth="209.0" text="Stocks" textFill="#ebe8e8">
+                    <font>
+                        <Font name="Cormorant Garamond Medium" size="20.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#eed4d4" glyphName="CLOUD" size="20" />
+                    </graphic>
+                    <padding>
+                        <Insets left="-40.0" />
+                    </padding>
+                </JFXButton>
+                <JFXButton fx:id="stat" graphicTextGap="10.0" layoutX="10.0" layoutY="170.0" onAction="#stat" prefHeight="75.0" prefWidth="208.0" text="Statisitiques" textFill="#ebe8e8">
+                    <font>
+                        <Font name="Cormorant Garamond Medium" size="20.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#eed4d4" glyphName="LINE_CHART" size="20" />
+                    </graphic>
+                    <padding>
+                        <Insets left="10.0" />
+                    </padding>
+                </JFXButton>
+                <JFXButton fx:id="param" graphicTextGap="10.0" layoutX="10.0" layoutY="196.0" prefHeight="75.0" prefWidth="210.0" text="Parametres" textFill="#ebe8e8">
+                    <font>
+                        <Font name="Cormorant Garamond Medium" size="20.0" />
+                    </font>
+                    <graphic>
+                        <FontAwesomeIconView fill="#eed4d4" glyphName="COGS" size="20" />
+                    </graphic>
+                </JFXButton>
+            </children>
+        </VBox>
+    </left>
+    <bottom>
+        <AnchorPane prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+    </bottom>
+    <top>
+        <AnchorPane prefHeight="42.0" prefWidth="700.0" style="-fx-background-color: #051428;" BorderPane.alignment="CENTER">
+            <children>
+                <JFXButton layoutX="551.0" layoutY="-1.0" onAction="#deconnexion" prefHeight="38.0" prefWidth="143.0" text="Deconnecter" textFill="#ddd9d9" AnchorPane.rightAnchor="25.0">
+                    <font>
+                        <Font name="Cormorant Garamond Medium" size="19.0" />
+                    </font>
+                </JFXButton>
+                <FontAwesomeIconView fill="#eee1e1" glyphName="SIGN_OUT" layoutX="655.0" layoutY="26.0" size="17" AnchorPane.rightAnchor="30.0" />
+            </children>
+        </AnchorPane>
+    </top>
+   <center>
+      <BorderPane fx:id="accueil" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <BarChart fx:id="one" BorderPane.alignment="CENTER">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

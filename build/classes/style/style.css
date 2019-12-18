@@ -1,0 +1,32 @@
+.root{
+    -fx-background-image: url('fond.jpg');
+    -fx-background-size: cover;
+}
+
+.backcolor{
+    -fx-background-color: rgba(0,0,0,0.5);
+}
+
+.rout{
+    -fx-background-image: url('fond2.jpg');
+    -fx-background-size: cover;
+    z-index: -1;
+}
+
+.tfiled{
+    -fx-color-label-visible: white;
+}
+
+.couleur{
+    -fx-background-color: black;
+}
+.bouton{
+    -fx-background-radius: 0 0 0 0  ;
+}
+.stock{
+
+    -fx-background-radius: 15 15 15 15  ;
+
+
+}
+

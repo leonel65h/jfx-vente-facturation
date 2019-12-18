@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="462.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Admin_update">
+    <children>
+        <Label layoutX="161.0" layoutY="21.0" text="Delete" textFill="#805050" underline="true">
+            <font>
+                <Font name="Cormorant Garamond Medium" size="24.0" />
+            </font>
+        </Label>
+        <TextField fx:id="id_user" layoutX="41.0" layoutY="88.0" prefHeight="35.0" prefWidth="208.0" promptText="Entrer ID" />
+        <JFXButton layoutX="280.0" layoutY="88.0" onAction="#recherche" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #3184b8;" text="Rechercher" textFill="#ced5da">
+            <font>
+                <Font name="EB Garamond ExtraBold" size="17.0" />
+            </font>
+        </JFXButton>
+        <JFXButton layoutX="77.0" layoutY="414.0" onAction="#delete_users" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #123;" text="Delete" textFill="#e0e1e4" AnchorPane.leftAnchor="80.0">
+            <font>
+                <Font name="Cormorant Garamond Medium" size="19.0" />
+            </font>
+            <graphic>
+                <FontAwesomeIconView fill="#eeeaea" glyphName="TRASH" size="20" />
+            </graphic>
+        </JFXButton>
+        <JFXButton layoutX="204.0" layoutY="414.0" onAction="#delete_user" prefHeight="38.0" prefWidth="118.0" style="-fx-background-color: #bf1111;" text="Fermer" textFill="#f8f4f4" AnchorPane.rightAnchor="80.0">
+            <font>
+                <Font name="Cormorant Garamond Medium" size="19.0" />
+            </font>
+            <graphic>
+                <FontAwesomeIconView fill="#ebe3e3" glyphName="CLOSE" size="20" />
+            </graphic>
+        </JFXButton>
+        <Label layoutX="8.0" layoutY="169.0" text="Nom">
+            <font>
+                <Font name="Cormorant Garamond Regular" size="19.0" />
+            </font>
+        </Label>
+        <TextField fx:id="adresse_user" layoutX="89.0" layoutY="275.0" prefHeight="35.0" prefWidth="171.0" />
+        <TextField fx:id="prenom_user" layoutX="89.0" layoutY="217.0" prefHeight="35.0" prefWidth="171.0" />
+        <TextField fx:id="nom_user" layoutX="88.0" layoutY="164.0" prefHeight="35.0" prefWidth="171.0" />
+        <Label layoutX="11.0" layoutY="224.0" text="Prenom">
+            <font>
+                <Font name="Cormorant Garamond Regular" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="12.0" layoutY="277.0" text="Adresse">
+            <font>
+                <Font name="Cormorant Garamond Regular" size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="14.0" layoutY="330.0" text="Role">
+            <font>
+                <Font name="Cormorant Garamond Regular" size="19.0" />
+            </font>
+        </Label>
+        <TextField fx:id="role_user" layoutX="88.0" layoutY="326.0" prefHeight="35.0" prefWidth="171.0" />
+        <Label layoutX="11.0" layoutY="91.0" text="Id">
+            <font>
+                <Font name="Cormorant Garamond Regular" size="19.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

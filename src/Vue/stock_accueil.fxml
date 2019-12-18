@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Stock_accueil">
+   <left>
+      <VBox prefHeight="550.0" prefWidth="196.0" style="-fx-background-color: #051428;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+               <image>
+                  <Image url="@../style/man.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="42.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="label" alignment="CENTER" prefHeight="25.0" prefWidth="123.0" text="Gest stocks" textFill="#cdc2c2" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="28.0" top="5.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Cormorant Garamond Medium" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" startX="-100.0" stroke="#c6b9b9">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Line>
+         </children>
+      </VBox>
+   </left>
+   <bottom>
+      <AnchorPane prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <AnchorPane prefHeight="42.0" prefWidth="700.0" style="-fx-background-color: #051428;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutX="551.0" layoutY="-1.0" onAction="#deconnexion" prefHeight="38.0" prefWidth="143.0" text="Deconnecter" textFill="#ddd9d9" AnchorPane.rightAnchor="25.0">
+               <font>
+                  <Font name="Cormorant Garamond Medium" size="19.0" />
+               </font>
+            </JFXButton>
+            <FontAwesomeIconView fill="#eee1e1" glyphName="SIGN_OUT" layoutX="655.0" layoutY="26.0" size="17" AnchorPane.rightAnchor="30.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <HBox fx:id="centre" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="303.0" prefWidth="337.0" style="-fx-background-color: #ade;">
+               <HBox.margin>
+                  <Insets bottom="150.0" left="100.0" right="50.0" top="150.0" />
+               </HBox.margin>
+               <children>
+                  <BorderPane prefHeight="250.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                     <bottom>
+                        <AnchorPane prefHeight="88.0" prefWidth="337.0" style="-fx-background-color: #ABC;" BorderPane.alignment="CENTER">
+                           <children>
+                              <JFXButton layoutX="-19.0" layoutY="15.0" onAction="#liste_p" prefHeight="40.0" prefWidth="374.0" text="Consulter la liste des produits en stocks">
+                                 <font>
+                                    <Font name="Cookie-Regular" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                              <FontAwesomeIconView fill="#3c2222" glyphName="ARROW_RIGHT" layoutX="305.0" layoutY="48.0" />
+                           </children>
+                        </AnchorPane>
+                     </bottom>
+                     <center>
+                        <HBox prefHeight="171.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label fx:id="qt_pdt" prefHeight="196.0" prefWidth="31.0" text="ddd">
+                                 <font>
+                                    <Font name="Cormorant Garamond Medium" size="45.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="207.0" prefWidth="268.0" text="Produits en stocks">
+                                 <font>
+                                    <Font name="Cookie-Regular" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </children>
+            </HBox>
+            <HBox layoutX="210.0" layoutY="10.0" prefHeight="303.0" prefWidth="330.0" style="-fx-background-color: #eaf;">
+               <HBox.margin>
+                  <Insets bottom="150.0" left="50.0" right="50.0" top="150.0" />
+               </HBox.margin>
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <bottom>
+                        <AnchorPane prefHeight="87.0" prefWidth="330.0" style="-fx-background-color: #AFD;" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

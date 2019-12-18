@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4513acb3-c4c0-46ce-b938-afb2aa3fe27a">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="264"/>
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+    <style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <subDataset name="PieChartDataset" uuid="465a5ae6-ed77-4aee-a8e4-556783687621"/>
+    <queryString language="SQL">
+		<![CDATA[SELECT nom_client, prenom_client,tel_client,pu,quantite,designation,prixt,date_c
+                FROM commande
+                INNER JOIN client ON commande.id_c=client.id_client
+                INNER JOIN produit ON commande.id_p = produit.id_p
+                ORDER BY date_c DESC LIMIT 1]]>
+    </queryString>
+    <field name="nom_client" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="prenom_client" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="tel_client" class="java.lang.Long">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="pu" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="quantite" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="designation" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="prixt" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="date_c" class="java.sql.Timestamp">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <background>
+        <band height="555" splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="518" splitType="Stretch">
+            <image>
+                <reportElement x="23" y="4" width="221" height="111" uuid="a3599fa4-3c62-4601-a5aa-34b19999cd25"/>
+                <imageExpression><![CDATA["/home/leonel65/NetBeansProjects/Final/CAP4.jpg"]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement x="4" y="99" width="219" height="20" uuid="75259d7e-bc7d-44c3-8362-492264c4b782"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[Vente du materiel informatique]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="5" y="119" width="219" height="20" uuid="22d1bea2-46dd-4089-8631-17844f0cf6a6"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[Etok koss]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="5" y="141" width="219" height="20" uuid="bc4c3919-a057-4070-a10e-0880afa1d58f"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[Yaounde, Cameroun]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="4" y="162" width="219" height="20" uuid="cdaf12b3-1425-43f9-9e6b-60b03304d872"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[leonel65kuaya@gmail.com]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="4" y="180" width="219" height="20" uuid="b41a2b93-f86d-4c88-adaf-cfeac39babae"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[tel : 698083345]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="443" y="186" width="150" height="28" uuid="73f52c43-c2be-423d-84ae-2a561912dd7d"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[Mr / Mlle ]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="519" y="226" width="82" height="18" uuid="324714dd-5858-43b5-9a55-b6bd698d53c2"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tel_client}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="514" y="207" width="162" height="20" uuid="acf16ce2-48c3-43df-91da-7bf4f095f160"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[adresse : xxx xxx xxx]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="511" y="186" width="82" height="28" uuid="528f7363-9633-4963-8dd3-ac40dc315016"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{prenom_client}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="555" y="186" width="82" height="28" uuid="41f509f5-d45a-4ac0-889b-2a0d56e48d6a"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nom_client}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="39" y="349" width="680" height="1" uuid="3871f787-ae70-4d62-9a09-787cbbb6ad58"/>
+            </line>
+            <line>
+                <reportElement x="39" y="453" width="680" height="1" uuid="abb733bf-f87a-4fdf-ad39-22df67b1ef8e"/>
+            </line>
+            <line>
+                <reportElement x="39" y="350" width="1" height="103" uuid="1599bfed-53e0-46b5-837b-69b96589ffe0"/>
+            </line>
+            <line>
+                <reportElement x="719" y="350" width="1" height="103" uuid="7efad853-0894-4e18-bd75-f422707debe4"/>
+            </line>
+            <staticText>
+                <reportElement x="455" y="279" width="100" height="20" uuid="4be16ee7-5742-4060-b846-e7593b149924"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14"/>
+                </textElement>
+                <text><![CDATA[A Simbock ,]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="525" y="279" width="82" height="20" uuid="dba3331c-a5f7-4231-b1fd-3a680dd8eaa3"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="14" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{date_c}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="40" y="380" width="680" height="1" uuid="3835bc31-6939-4187-b444-00af9421d7ac"/>
+            </line>
+            <line>
+                <reportElement x="292" y="350" width="1" height="103" uuid="28dbea41-c61c-40d1-9471-3588dcd6c8d4"/>
+            </line>
+            <line>
+                <reportElement x="445" y="351" width="1" height="103" uuid="6ad2dd7d-d929-4cfb-8e4f-da62ca1c0c0f"/>
+            </line>
+            <line>
+                <reportElement x="592" y="350" width="1" height="103" uuid="2814f1ec-0eac-4083-8819-553556887517"/>
+            </line>
+            <line>
+                <reportElement x="445" y="454" width="1" height="42" uuid="8cf59f41-e96e-49c5-b4b5-6db6723c553c"/>
+            </line>
+            <line>
+                <reportElement x="592" y="454" width="1" height="42" uuid="f718f0e4-d790-4fe5-9371-98db01cc6790"/>
+            </line>
+            <line>
+                <reportElement x="719" y="453" width="1" height="42" uuid="7abe5dbe-64a6-4b25-89bb-f3b96770dfb1"/>
+            </line>
+            <line>
+                <reportElement x="446" y="495" width="274" height="1" uuid="60967ec2-9310-4ca1-a56f-8013cba93c5c"/>
+            </line>
+            <staticText>
+                <reportElement x="130" y="360" width="100" height="16" uuid="fb939a4b-b1ba-4b05-8c87-cb02a33c18b9"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="12"/>
+                </textElement>
+                <text><![CDATA[DESIGNATION]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="347" y="359" width="45" height="17" uuid="9bf21cf0-12ea-4f00-925d-4d21ddf0495a"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="12"/>
+                </textElement>
+                <text><![CDATA[Qté]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="502" y="360" width="45" height="17" uuid="049b8db8-cdb9-41ef-92c4-8111f9466eef"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="12"/>
+                </textElement>
+                <text><![CDATA[P.U]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="637" y="359" width="45" height="17" uuid="f3dac2d3-6f28-49d4-bf4e-63bc923aac23"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="12"/>
+                </textElement>
+                <text><![CDATA[P. Total]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="328" y="410" width="115" height="14" uuid="cdbe92fa-7451-46b1-8990-a3b5aabd07d4"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{quantite}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="482" y="410" width="82" height="14" uuid="bdea78cd-9e19-4a68-ab0a-98a307cb9791"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{quantite}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="482" y="410" width="82" height="14" uuid="bdea78cd-9e19-4a68-ab0a-98a307cb9791"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pu}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="629" y="468" width="82" height="14" uuid="68ec2d55-8571-452b-8e3a-4e069e927deb"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{prixt}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="466" y="463" width="100" height="26" uuid="31705c44-2fc4-4342-bfa5-774595c319ce"/>
+                <textElement>
+                    <font fontName="Cormorant Garamond Medium" size="18"/>
+                </textElement>
+                <text><![CDATA[Net a payer]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="629" y="410" width="82" height="14" uuid="08ce6766-c669-443b-ad2e-bc07a8689744"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{prixt}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="94" y="410" width="136" height="14" uuid="8f7b4a08-0a0e-421c-9694-935bfdd47a54"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{designation}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="14" splitType="Stretch">
+            <frame>
+                <reportElement x="227" y="0" width="575" height="14" uuid="d348eae8-46d9-4306-91e9-2bb96a33c5f9"/>
+            </frame>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="15" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="227" y="14" width="575" height="1" uuid="2825c29b-e8a9-41be-a47c-764350b87d34"/>
+            </line>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="7" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="88566c38-8cbf-424c-a2d2-0deb0235fa8a"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="16" splitType="Stretch">
+            <staticText>
+                <reportElement x="574" y="-5" width="223" height="20" uuid="082ec695-0bd1-4a78-9e0a-83c772e92b8d"/>
+                <text><![CDATA[Votre satisfaction est notre priorité]]></text>
+            </staticText>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>
